@@ -9,6 +9,10 @@ $(function () {
             // we first authorise the twitter API (this was the hard bit I was telling you about
             // but we found a library to do it for us at http://oauth-io.github.io/
             OAuth.popup('twitter', function (error, success) {
+                if (error) {
+                    console.log(error)
+                    return error
+                }
                 // when we succeed with the authorisation, we can access the twitter API
                 // we're using the search API here, you can read about it here https://dev.twitter.com/rest/reference/get/search/tweets
                 // you need to find a way of changing the 'geocode' to where the user wants to search :D
